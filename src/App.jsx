@@ -1,11 +1,12 @@
 import React from 'react'
-import { MenuCard , Appbar, LandingPage} from './Components/index'
+import { MenuCard , Navigation, LandingPage, SearchFood} from './Components/index'
 
 function App() {
   return (
     <>
-      <Appbar/>
+      <Navigation/>
       <LandingPage />
+      <SearchFood />
       {/* <h1>Hello React</h1> */}
     </>
   )
