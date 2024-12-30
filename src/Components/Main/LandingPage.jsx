@@ -9,7 +9,16 @@ function LandingPage() {
         <>
             <ColorPaletter children={
                 <Container>
-                    <Stack direction={'row'} spacing={16} sx={{ alignItems: 'center' }}>
+                    <Stack 
+                        direction={'row'} 
+                        spacing={16} 
+                        sx={{ 
+                            alignItems: 'center' , 
+                            flexWrap: 'wrap' , 
+                            justifyContent: 'center' , 
+                            textAlign: 'center'
+                        }}
+                    >
                         <Box>
                             <img src={master} alt="" width={500} />
                         </Box>
