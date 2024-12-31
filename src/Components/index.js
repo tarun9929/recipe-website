@@ -27,6 +27,7 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import Contect from "./Contect/Contect";
 import CircularProgress from '@mui/material/CircularProgress';
+import FoodList from "./FoodList/FoodList";
 
 export {
     // Custom Components
@@ -40,7 +41,7 @@ export {
     About,
     Recipes,
     Contect,
-
+    FoodList,
 
     // Mui Components
     Typography,

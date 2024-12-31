@@ -22,6 +22,7 @@ class Meal {
     }
 
     async getNumberOfMeals(number) {
+        console.log(number)
         let i = 0;
         try {
             while(i < number) {

@@ -1,24 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import meals from '../../MealApi/MealApi'
-import { MenuCard, Stack, CircularProgress, ColorPaletter, Container } from '../index';
+import { CircularProgress, ColorPaletter, Container, FoodList } from '../index';
+import PropTypes from 'prop-types'
 
-function Recipes() {
-    const [food, setFood] = useState([]);
-    const [loading, setLoading] = useState(true);
+function Recipes({useHook , numberOfMeals}) {
 
-    useEffect(() => {
-        setLoading(true);
-        meals.getNumberOfMeals(10)
-            .then((data) => {
-                setFood(data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setLoading(false);
-            })
-    }, [])
+    const [food , setFood , loading , setLoading] = useHook(numberOfMeals);
 
     if (loading) {
         return (
@@ -36,7 +23,10 @@ function Recipes() {
     }
     return (
         <>
-            <Stack
+            <FoodList 
+                food={food} 
+            />
+            {/* <Stack
                 direction={'row'}
                 flexWrap={'wrap'}
                 sx={{
@@ -57,9 +47,14 @@ function Recipes() {
                         />
                     })
                 }
-            </Stack>
+            </Stack> */}
         </>
     )
 }
+
+Recipes.propTypes = {
+    useHook: PropTypes.func.isRequired,
+    numberOfMeals: PropTypes.number.isRequired
+};
 
 export default Recipes
