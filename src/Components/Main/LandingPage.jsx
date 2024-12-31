@@ -11,7 +11,7 @@ function LandingPage() {
                 <Container>
                     <Stack 
                         direction={'row'} 
-                        spacing={16} 
+                        gap={10}
                         sx={{ 
                             alignItems: 'center' , 
                             flexWrap: 'wrap' , 
@@ -19,8 +19,10 @@ function LandingPage() {
                             textAlign: 'center'
                         }}
                     >
-                        <Box>
-                            <img src={master} alt="" width={500} />
+                        <Box 
+                            sx={{width: 500}}
+                        >
+                            <img src={master} alt="" width={'100%'} />
                         </Box>
                         <Box>
                             <Title 
@@ -29,7 +31,7 @@ function LandingPage() {
                                 component={'h3'}
                                 styles={{
                                     textAlign: 'center', 
-                                    color: 'primary.main'
+                                    color: 'primary.main',
                                 }}
                             />
                             < Title

@@ -1,29 +1,36 @@
 import * as React from 'react';
-import {TextField , Stack , Autocomplete} from '../index'
+import { TextField, Stack, Autocomplete, Title, Button, ColorPaletter } from '../index'
 
 export default function SearchFood() {
-  return (
-    <Stack spacing={2} sx={{ width: '50%' , margin:'auto' , my: 12 }}>
-      <Autocomplete
-        freeSolo
-        id="free-solo-2-demo"
-        disableClearable
-        options={top100Films.map((option) => option.title)}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Search Food"
-            slotProps={{
-              input: {
-                ...params.InputProps,
-                type: 'search',
-              },
-            }}
-          />
-        )}
+  return <ColorPaletter children={(
+    <Stack spacing={2} sx={{ width: '50%', margin: 'auto', my: 12 }}>
+      <Title
+        title={"Search Your Recipe"}
+        variant={'h2'}
+        component={'h1'}
+        styles={{
+          color: 'primary.main'
+        }}
       />
+      <Stack
+        direction={'row'}
+        spacing={1}
+        flexWrap={'wrap'}
+      >
+
+        <TextField
+          id="filled-search"
+          label="Search Recipe"
+          type="search"
+          variant="filled"
+          sx={{ flexGrow: 2 }}
+        />
+        <Button variant="contained">Search</Button>
+      </Stack>
     </Stack>
-  );
+  )}
+  />
+
 }
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
