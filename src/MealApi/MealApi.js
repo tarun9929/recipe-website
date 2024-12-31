@@ -7,7 +7,7 @@ class Meal {
 
     async getMealByName(name) {
         try {
-            return (await fetch(`www.themealdb.com/api/json/v1/1/search.php?s=${name}`)).json();
+            return (await fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${name}`)).json();
         } catch (error) {
             throw error;
         }
@@ -15,7 +15,7 @@ class Meal {
 
     async getRandomMeal() {
         try {
-            return (await fetch('www.themealdb.com/api/json/v1/1/random.php')).json();
+            return (await fetch('https://themealdb.com/api/json/v1/1/random.php')).json();
         } catch (error) {
             throw error;
         }
@@ -25,8 +25,9 @@ class Meal {
         let i = 0;
         try {
             while(i < number) {
-                const meal = await (await fetch('www.themealdb.com/api/json/v1/1/random.php')).json();
+                const meal = await (await fetch('https://themealdb.com/api/json/v1/1/random.php')).json();
                 this.MealList.push(meal);
+                i++;
             }
             return this.MealList;
         } catch (error) {

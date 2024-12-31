@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {AppBar , Box , Toolbar , IconButton , Typography , Menu , MenuIcon , Container , Avatar , Button , Tooltip , MenuItem , AdbIcon , LocalDiningIcon} from '../index';
+import {AppBar , Box , Toolbar , IconButton , Typography , Menu , MenuIcon , Container , Avatar , Button , Tooltip , MenuItem , LocalDiningIcon} from '../index';
 import master from '../../../images/master.png'
+import { Link } from 'react-router-dom';
 
 
 
@@ -36,8 +37,7 @@ function Navigation() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component="span"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -48,7 +48,16 @@ function Navigation() {
               textDecoration: 'none',
             }}
           >
-            FOOD
+            <Link 
+              style={{
+                textDecoration: 'none',
+                color: 'white'
+              }}
+
+              to={''}
+            >
+              FOOD
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -80,7 +89,11 @@ function Navigation() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                  <Link to={`${page.toLowerCase()}`} style={{textDecoration: 'none' , color:'black'}}>
+                    <Typography sx={{ textAlign: 'center'}}>
+                        {page}
+                    </Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -88,8 +101,7 @@ function Navigation() {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component="span"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -101,16 +113,33 @@ function Navigation() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <Link 
+              style={{
+                textDecoration: 'none',
+                color: 'white'
+              }}
+
+              to={''}
+            >
+              FOOD
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map((page ) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link
+                  to={`/${page.toLowerCase()}`}
+                  style={{
+                    textDecoration: 'none',
+                    color:'white'
+                  }}
+                  >
+                    {page}
+                </Link>
               </Button>
             ))}
           </Box>

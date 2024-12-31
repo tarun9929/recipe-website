@@ -4,6 +4,9 @@ import LandingPage from "./Main/LandingPage";
 import ColorPaletter from "./Palette/ColorPaletter";
 import SearchFood from "./SearchFood/SearchFood";
 import Title from "./Title/Title";
+import Home from "./Home/Home";
+import About from "./About/About";
+import Recipes from "./Recipes/Recipes";
 
 import { Typography } from '@mui/material'
 import AppBar from '@mui/material/AppBar';
@@ -22,6 +25,7 @@ import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import Contect from "./Contect/Contect";
 
 export {
     // Custom Components
@@ -31,6 +35,10 @@ export {
     ColorPaletter,
     SearchFood,
     Title,
+    Home,
+    About,
+    Recipes,
+    Contect,
 
 
     // Mui Components

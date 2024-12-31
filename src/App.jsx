@@ -1,13 +1,12 @@
 import React from 'react'
-import { MenuCard , Navigation, LandingPage, SearchFood} from './Components/index'
+import { Navigation } from './Components/index'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
     <>
       <Navigation/>
-      <LandingPage />
-      <SearchFood />
-      {/* <h1>Hello React</h1> */}
+      <Outlet />
     </>
   )
 }
