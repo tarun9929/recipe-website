@@ -41,6 +41,7 @@ const ExpandMore = styled((props) => {
 
 export default function MenuCard({name , content , image , styles}) {
   const [expanded, setExpanded] = React.useState(false);
+  const [like , setLike] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -76,8 +77,13 @@ export default function MenuCard({name , content , image , styles}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton 
+          aria-label="add to favorites"
+          onClick={() => setLike(!like)}
+        >
+          <FavoriteIcon 
+            sx={{color: like ? 'red': ''}} 
+          />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />

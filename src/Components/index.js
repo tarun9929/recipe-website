@@ -26,6 +26,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import Contect from "./Contect/Contect";
+import CircularProgress from '@mui/material/CircularProgress';
 
 export {
     // Custom Components
@@ -58,5 +59,6 @@ export {
     LocalDiningIcon,
     TextField,
     Stack,
-    Autocomplete
+    Autocomplete,
+    CircularProgress
 };
