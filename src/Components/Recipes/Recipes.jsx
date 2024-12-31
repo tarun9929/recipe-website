@@ -1,53 +1,64 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { CircularProgress, ColorPaletter, Container, FoodList } from '../index';
+import { Button, CircularProgress, ColorPaletter, Container, FoodList } from '../index';
 import PropTypes from 'prop-types'
+import meals from '../../MealApi/MealApi';
 
-function Recipes({useHook , numberOfMeals}) {
+function Recipes({ useHook, numberOfMeals }) {
 
-    const [food , setFood , loading , setLoading] = useHook(numberOfMeals);
+    const [food, setFood, loading, setLoading] = useHook(numberOfMeals);
 
-    if (loading) {
-        return (
-            <Container sx={{
-                my: 30 ,
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
-                <ColorPaletter children={
-                    <CircularProgress size="3rem" sx={{ color: 'primary.main' }} />
-                }
-                />
-            </Container>
-        )
+    function handleMoreContent() {
+        setLoading(true)
+        meals.getNumberOfMeals(numberOfMeals)
+            .then((data) => {
+                // console.log([...food, ...data])
+                setFood([...food, ...data]);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                setLoading(false);
+            })
     }
+
     return (
         <>
-            <FoodList 
-                food={food} 
-            />
-            {/* <Stack
-                direction={'row'}
-                flexWrap={'wrap'}
-                sx={{
-                    justifyContent: 'center'
-                }}
-            >
-                {
-                    food.map((element, key) => {
-                        return <MenuCard
-                            key={key}
-                            name={element.meals[0].strCategory}
-                            content={element.meals[0].strInstructions}
-                            image={element.meals[0].strMealThumb}
-                            styles={{
-                                my: 3,
-                                mx: 4
-                            }}
+            {
+                !loading ?
+                    (
+                        <>
+                            <FoodList
+                                food={food}
+                            />
+                            <ColorPaletter children={
+                                <Button
+                                    sx={{
+                                        margin: 'auto',
+                                        display: 'block',
+                                        my: 3,
+                                        background: 'primary.main'
+                                    }}
+                                    variant='contained'
+                                    onClick={handleMoreContent}
+                                >More</Button>
+                            } />
+                        </>
+                    ) :
+                    <Container sx={{
+                        my: 10,
+                        display: 'flex',
+                        justifyContent: 'center'
+                    }}>
+                        <ColorPaletter children={
+                            <CircularProgress size="3rem" sx={{ color: 'primary.main' }} />
+                        }
                         />
-                    })
-                }
-            </Stack> */}
+                    </Container>
+
+            }
+
+
         </>
     )
 }

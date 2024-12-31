@@ -1,3 +1,5 @@
+// Deprecated
+
 class Meal {
     MealList;
 

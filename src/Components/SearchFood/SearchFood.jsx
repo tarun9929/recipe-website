@@ -29,8 +29,11 @@ export default function SearchFood() {
           value={search}
           onChange={((e) => setSearch(e.target.value))}
         />
-        <Link to={`api/search/${search}`}>
-          <Button variant="contained">Search</Button>
+        <Link to={search ? `api/search/${search}`: ''}>
+          <Button 
+            variant="contained" 
+            sx={{height:'100%'}}
+          >Search</Button>
         </Link>
       </Stack>
     </Stack>
