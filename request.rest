@@ -1,0 +1,5 @@
+
+
+GET
+Host: https://api.spoonacular.com 
+Content-Type: application/json
