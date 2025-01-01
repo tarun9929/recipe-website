@@ -7,6 +7,7 @@ import Title from "./Title/Title";
 import Home from "./Home/Home";
 import About from "./About/About";
 import Recipes from "./Recipes/Recipes";
+import Introduction from "./LearnMore/Introduction";
 
 import { Typography } from '@mui/material'
 import AppBar from '@mui/material/AppBar';
@@ -29,6 +30,7 @@ import Contect from "./Contect/Contect";
 import CircularProgress from '@mui/material/CircularProgress';
 import FoodList from "./FoodList/FoodList";
 import SearchMyFood from "./SearchFoodList/SearchMyFood";
+import Learn from "./LearnMore/Learn";
 
 export {
     // Custom Components
@@ -44,6 +46,8 @@ export {
     Contect,
     FoodList,
     SearchMyFood,
+    Introduction,
+    Learn,
 
     // Mui Components
     Typography,

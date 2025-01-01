@@ -5,7 +5,16 @@ import { Link } from 'react-router-dom';
 export default function SearchFood() {
   const [search , setSearch] = React.useState('')
   return <ColorPaletter children={(
-    <Stack spacing={2} sx={{ width: '50%', margin: 'auto', my: 12 }}>
+    <Stack 
+      spacing={2}
+      sx={{ 
+        width: '100%', 
+        minHeight: '100vh', 
+        margin: 'auto', 
+        py: 20 , 
+        alignItems: 'center'
+      }}
+    >
       <Title
         title={"Search Your Recipe"}
         variant={'h2'}
@@ -18,6 +27,7 @@ export default function SearchFood() {
         direction={'row'}
         spacing={1}
         flexWrap={'wrap'}
+        width={'50%'}
       >
 
         <TextField
@@ -25,7 +35,7 @@ export default function SearchFood() {
           label="Search Recipe"
           type="search"
           variant="filled"
-          sx={{ flexGrow: 2 }}
+          sx={{ flexGrow: 2 , minWidth: '50%'}}
           value={search}
           onChange={((e) => setSearch(e.target.value))}
         />

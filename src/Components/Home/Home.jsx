@@ -1,11 +1,12 @@
 import React from 'react'
-import { LandingPage, SearchFood } from '../index'
+import { LandingPage, SearchFood , Learn } from '../index'
 
 function Home() {
   return (
     <>
       <LandingPage />
       <SearchFood />
+      <Learn/>
     </>
   )
 }
