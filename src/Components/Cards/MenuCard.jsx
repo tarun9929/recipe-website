@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -39,7 +40,7 @@ const ExpandMore = styled((props) => {
   ],
 }));
 
-export default function MenuCard({name , content , image , styles}) {
+export default function MenuCard({name , content , image , styles , onClickHandlar}) {
   const [expanded, setExpanded] = React.useState(false);
   const [like , setLike] = React.useState(false);
 
@@ -48,7 +49,9 @@ export default function MenuCard({name , content , image , styles}) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 , ...styles}}>
+    <Card 
+      sx={{ maxWidth: 345 , ...styles}}
+    >
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -84,6 +87,12 @@ export default function MenuCard({name , content , image , styles}) {
           <FavoriteIcon 
             sx={{color: like ? 'red': ''}} 
           />
+        </IconButton>
+        <IconButton 
+          aria-label="add to favorites"
+          onClick={onClickHandlar}
+        >
+          <OpenInNewIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />

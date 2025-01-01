@@ -1,7 +1,14 @@
 import React from 'react'
 import { Stack , MenuCard} from '../index'
+import { useNavigate } from 'react-router-dom'
 
 function FoodList({food , styles}) {
+    const navigate = useNavigate();
+
+    function handleShowContent(target) {
+        // console.log(target.meals[0].idMeal)
+        navigate(`/recipes/content/${target.meals[0].idMeal}` , {state: target.meals})
+    }
     return (
         <Stack
             direction={'row'}
@@ -22,6 +29,7 @@ function FoodList({food , styles}) {
                             my: 3,
                             mx: 4
                         }}
+                        onClickHandlar={() => handleShowContent(element)}
                     />
                 })
             }

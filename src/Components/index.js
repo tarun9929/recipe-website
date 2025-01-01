@@ -31,6 +31,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import FoodList from "./FoodList/FoodList";
 import SearchMyFood from "./SearchFoodList/SearchMyFood";
 import Learn from "./LearnMore/Learn";
+import Content from "./RecipeContent/Content";
 
 export {
     // Custom Components
@@ -48,6 +49,7 @@ export {
     SearchMyFood,
     Introduction,
     Learn,
+    Content,
 
     // Mui Components
     Typography,
