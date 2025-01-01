@@ -3,22 +3,38 @@ import { useEffect, useState } from 'react'
 import { Button, CircularProgress, ColorPaletter, Container, FoodList } from '../index';
 import PropTypes from 'prop-types'
 import meals from '../../MealApi/MealApi';
+import {setData} from '../../features/apiDataSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Recipes({ useHook, numberOfMeals }) {
 
-    const [food, setFood, loading, setLoading] = useHook(numberOfMeals);
+    useHook(numberOfMeals);
+
+    const dispatch = useDispatch();
+
+    const loading = useSelector((state) => state.api.isLoading);
+    const food = useSelector((state) => state.api.data);
 
     function handleMoreContent() {
-        setLoading(true)
+        dispatch(setData({
+            data: [],
+            isLoading: true
+        }))
         meals.getNumberOfMeals(numberOfMeals)
             .then((data) => {
                 // console.log([...food, ...data])
-                setFood([...food, ...data]);
-                setLoading(false);
+                console.log(data)
+                dispatch(setData({
+                    data,
+                    isLoading: false
+                }))
             })
             .catch((error) => {
                 console.log(error);
-                setLoading(false);
+                dispatch(setData({
+                    isLoading: false,
+                    error
+                }))
             })
     }
 

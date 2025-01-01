@@ -1,24 +1,35 @@
-import { useEffect , useState } from "react";
+import { useEffect } from "react";
 import meals from "../MealApi/MealApi";
+import { useDispatch , useSelector } from "react-redux";
+import { setData } from "../features/apiDataSlice";
 
 function useRandomData(numberOfMeals) {
-    const [food , setFood] = useState([]);
-    const [loading , setLoading] = useState(true);
+
+    const dispatch = useDispatch();
+
+    const initData = useSelector((state) => state.api.data)
 
     useEffect(() => {
-        setLoading(true);
+      if(!initData.length){
         meals.getNumberOfMeals(numberOfMeals)
               .then((data) => {
-                setFood(data);
-                setLoading(false);
+                dispatch(setData({
+                  data,
+                  isLoading: false
+                }));
               })
               .catch((error) => {
                 console.log(error);
-                setLoading(false);
+                dispatch(setData(
+                  {
+                    data: [],
+                    isLoading: false,
+                    error
+                  }
+                ))
               })
+      }
     } , [])
-
-    return [food , setFood , loading , setLoading];
 }
 
 export default useRandomData;

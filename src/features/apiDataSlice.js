@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    data: []
+    data: [],
+    isLoading: true,
+    error: {}
 }
 
 const apiDataSlice = createSlice({
     name: "api",
     initialState,
     reducers: {
-        getData(state , action) {
-            return state.data;
-        },
-
         setData(state , action) {
-            state.data = [...state.data , ...action.payload.data]
+            state.data = [...state.data , ...action.payload.data];
+            state.isLoading = action.payload.isLoading;
+            state.error = action.payload.error;
         }
     }
 })
