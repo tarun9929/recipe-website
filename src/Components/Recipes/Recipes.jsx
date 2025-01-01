@@ -24,39 +24,40 @@ function Recipes({ useHook, numberOfMeals }) {
 
     return (
         <>
-            {
-                !loading ?
-                    (
-                        <>
-                            <FoodList
-                                food={food}
-                            />
-                            <ColorPaletter children={
-                                <Button
-                                    sx={{
-                                        margin: 'auto',
-                                        display: 'block',
-                                        my: 3,
-                                        background: 'primary.main'
-                                    }}
-                                    variant='contained'
-                                    onClick={handleMoreContent}
-                                >More</Button>
-                            } />
-                        </>
-                    ) :
-                    <Container sx={{
-                        my: 10,
-                        display: 'flex',
-                        justifyContent: 'center'
-                    }}>
-                        <ColorPaletter children={
-                            <CircularProgress size="3rem" sx={{ color: 'primary.main' }} />
-                        }
-                        />
-                    </Container>
 
+            <>
+                <FoodList
+                    food={food}
+                />
+                
+            </>
+
+            {
+                loading ? 
+                <Container sx={{
+                    my: 10,
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}>
+                    <ColorPaletter children={
+                        <CircularProgress size="3rem" sx={{ color: 'primary.main' }} />
+                    }
+                    />
+                </Container>:
+                <ColorPaletter children={
+                    <Button
+                        sx={{
+                            margin: 'auto',
+                            display: 'block',
+                            my: 3,
+                            background: 'primary.main'
+                        }}
+                        variant='contained'
+                        onClick={handleMoreContent}
+                    >More</Button>
+                } />
             }
+            
 
 
         </>
