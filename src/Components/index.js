@@ -1,4 +1,4 @@
-import MenuCard from "./Cards/MenuCard";
+import MenuCard from './Cards/MenuCard';
 import Navigation from './Navigation/Navigation';
 import LandingPage from "./Main/LandingPage";
 import ColorPaletter from "./Palette/ColorPaletter";

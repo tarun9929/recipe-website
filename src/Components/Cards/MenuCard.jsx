@@ -15,6 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { useSelector } from 'react-redux';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -40,13 +41,26 @@ const ExpandMore = styled((props) => {
   ],
 }));
 
-export default function MenuCard({name , content , image , styles , onClickHandlar}) {
+export default function MenuCard({id , name , content , image , styles , onClickHandlar , handleLikes}) {
   const [expanded, setExpanded] = React.useState(false);
   const [like , setLike] = React.useState(false);
+
+  let isLiked = false
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  isLiked = useSelector((state) => {
+    return state.api.likes.find((mealId) => {
+      return mealId === id;
+    })
+  })
+
+  React.useEffect(() => {
+    console.log(isLiked)
+  })
+
 
   return (
     <Card 
@@ -82,10 +96,10 @@ export default function MenuCard({name , content , image , styles , onClickHandl
       <CardActions disableSpacing>
         <IconButton 
           aria-label="add to favorites"
-          onClick={() => setLike(!like)}
+          onClick={handleLikes}
         >
           <FavoriteIcon 
-            sx={{color: like ? 'red': ''}} 
+            sx={{color: isLiked ? 'red': ''}} 
           />
         </IconButton>
         <IconButton 

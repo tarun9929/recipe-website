@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     data: [],
     isLoading: true,
-    error: {}
+    error: {},
+    likes: []
 }
 
 const apiDataSlice = createSlice({
@@ -16,9 +17,19 @@ const apiDataSlice = createSlice({
             }
             state.isLoading = action.payload.isLoading;
             state.error = action.payload.error;
+        },
+
+        setLikes(state , action) {
+            state.likes.push(action.payload.likes);
+        },
+
+        removeLike(state , action) {
+            state.likes = state.likes.filter((element) => {
+                return element != action.payload.likes;
+            })
         }
     }
 })
 
 export default apiDataSlice.reducer;
-export const {setData , getData} = apiDataSlice.actions;
+export const {setData , getData , setLikes , removeLike} = apiDataSlice.actions;
