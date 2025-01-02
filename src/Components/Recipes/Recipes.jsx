@@ -17,15 +17,15 @@ function Recipes({ useHook, numberOfMeals }) {
 
     function handleMoreContent() {
         dispatch(setData({
-            data: [],
             isLoading: true
         }))
         meals.getNumberOfMeals(numberOfMeals)
-            .then((data) => {
+            .then((response) => {
                 // console.log([...food, ...data])
-                console.log(data)
+                console.log("Here is your result::")
+                console.log(response)
                 dispatch(setData({
-                    data,
+                    data:response,
                     isLoading: false
                 }))
             })

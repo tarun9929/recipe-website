@@ -11,7 +11,9 @@ const apiDataSlice = createSlice({
     initialState,
     reducers: {
         setData(state , action) {
-            state.data = [...state.data , ...action.payload.data];
+            if(action.payload.data) {
+                state.data = [...action.payload.data];
+            }
             state.isLoading = action.payload.isLoading;
             state.error = action.payload.error;
         }
