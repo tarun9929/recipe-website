@@ -2,6 +2,7 @@ import * as React from 'react';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuIcon, Container, Avatar, Button, Tooltip, MenuItem, LocalDiningIcon } from '../index';
 import master from '../../../images/master.png'
 import { Link } from 'react-router-dom';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const pages = ['Recipes', 'About', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -141,6 +142,19 @@ function Navigation() {
                 </Button>
               </Link>
             ))}
+          </Box>
+          <Box 
+            mx={1}
+          >
+            <Link to={'/recipes/likes'}>
+              <IconButton>
+                <FavoriteIcon 
+                  fontSize='30px'
+                  sx={{
+                  color: 'white'
+                }} />
+              </IconButton>
+            </Link>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

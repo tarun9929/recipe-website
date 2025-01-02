@@ -63,6 +63,25 @@ class Meal {
             throw error;
         }
     }
+
+    async getMealById(ids) {
+        let response = [];
+        let i = 0;
+
+        while(i < ids.length){
+            try {
+                const result = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${ids[i]}`);
+
+                response.push(await result.json())
+            } catch (error) {
+                throw error;
+            }
+
+            i++;
+
+        }
+        return response;
+    }
 }   
 
 const meals = new Meal();

@@ -32,6 +32,7 @@ import FoodList from "./FoodList/FoodList";
 import SearchMyFood from "./SearchFoodList/SearchMyFood";
 import Learn from "./LearnMore/Learn";
 import Content from "./RecipeContent/Content";
+import Likes from './Likes/Likes';
 
 export {
     // Custom Components
@@ -50,6 +51,7 @@ export {
     Introduction,
     Learn,
     Content,
+    Likes,
 
     // Mui Components
     Typography,

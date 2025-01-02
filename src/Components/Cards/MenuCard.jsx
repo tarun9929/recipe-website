@@ -57,9 +57,6 @@ export default function MenuCard({id , name , content , image , styles , onClick
     })
   })
 
-  React.useEffect(() => {
-    console.log(isLiked)
-  })
 
 
   return (
