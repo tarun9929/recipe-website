@@ -8,7 +8,13 @@ import Home from "./Home/Home";
 import About from "./About/About";
 import Recipes from "./Recipes/Recipes";
 import Introduction from "./LearnMore/Introduction";
+import FoodList from "./FoodList/FoodList";
+import SearchMyFood from "./SearchFoodList/SearchMyFood";
+import Learn from "./LearnMore/Learn";
+import Content from "./RecipeContent/Content";
+import Likes from './Likes/Likes';
 import Error from './Error/Error';
+import History from './History/History';
 
 import { Typography } from '@mui/material'
 import AppBar from '@mui/material/AppBar';
@@ -29,11 +35,7 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import Contect from "./Contect/Contect";
 import CircularProgress from '@mui/material/CircularProgress';
-import FoodList from "./FoodList/FoodList";
-import SearchMyFood from "./SearchFoodList/SearchMyFood";
-import Learn from "./LearnMore/Learn";
-import Content from "./RecipeContent/Content";
-import Likes from './Likes/Likes';
+
 
 export {
     // Custom Components
@@ -54,6 +56,7 @@ export {
     Content,
     Likes,
     Error,
+    History,
 
     // Mui Components
     Typography,

@@ -3,6 +3,7 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuIcon, Container
 import master from '../../../images/master.png'
 import { Link } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import HistoryIcon from '@mui/icons-material/History';
 
 const pages = ['Recipes', 'About', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -143,9 +144,7 @@ function Navigation() {
               </Link>
             ))}
           </Box>
-          <Box 
-            mx={1}
-          >
+          <Box>
             <Link to={'/recipes/likes'}>
               <IconButton>
                 <FavoriteIcon 
@@ -153,6 +152,21 @@ function Navigation() {
                   sx={{
                   color: 'white'
                 }} />
+              </IconButton>
+            </Link>
+          </Box>
+          <Box 
+            mr={3}
+            ml={1}
+          >
+            <Link to={'/recipes/history'}>
+              <IconButton>
+                <HistoryIcon 
+                  fontSize='30px'
+                  sx={{
+                    color: 'white'
+                  }}
+                />
               </IconButton>
             </Link>
           </Box>

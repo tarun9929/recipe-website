@@ -4,7 +4,8 @@ const initialState = {
     data: [],
     isLoading: true,
     error: {},
-    likes: []
+    likes: [],
+    history: [],
 }
 
 const apiDataSlice = createSlice({
@@ -23,6 +24,10 @@ const apiDataSlice = createSlice({
             state.likes.push(action.payload.likes);
         },
 
+        setHistory(state , action){
+            state.history.push(action.payload.history);
+        },
+
         removeLike(state , action) {
             state.likes = state.likes.filter((element) => {
                 return element != action.payload.likes;
@@ -32,4 +37,4 @@ const apiDataSlice = createSlice({
 })
 
 export default apiDataSlice.reducer;
-export const {setData , getData , setLikes , removeLike} = apiDataSlice.actions;
+export const {setData , getData , setLikes , removeLike , setHistory} = apiDataSlice.actions;

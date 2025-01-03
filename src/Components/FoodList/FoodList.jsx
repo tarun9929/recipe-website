@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack , MenuCard} from '../index'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { removeLike, setLikes } from '../../features/apiDataSlice';
+import { removeLike, setLikes , setHistory } from '../../features/apiDataSlice';
 
 function FoodList({food , styles}) {
     const navigate = useNavigate();
@@ -11,7 +11,11 @@ function FoodList({food , styles}) {
     const [isLiked , setIsLiked] = React.useState(false)
 
     function handleShowContent(target) {
-        navigate(`/recipes/content/${target.meals[0].idMeal}` , {state: target.meals})
+        const id = target.meals[0].idMeal;
+        dispatch(setHistory({
+            history: id
+        }))
+        navigate(`/recipes/content/${id}` , {state: target.meals})
     }
 
     const prevData = useSelector((state) => state.api.likes)

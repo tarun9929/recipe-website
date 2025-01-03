@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home, About, Recipes, Contect , SearchMyFood , Content , Likes, Error } from './Components/index.js'
+import { Home, About, Recipes, Contect , SearchMyFood , Content , Likes, Error , History } from './Components/index.js'
 import meals from './MealApi/MealApi.js'
 import useRandomData from './hooks/useRandomData.js'
 import store from './store/store.js'
@@ -24,6 +24,7 @@ createRoot(document.getElementById('root')).render(
           <Route path='/api/search/:id' element={<SearchMyFood />} />
           <Route path='/recipes/content/:id' element={<Content />} />
           <Route path='/recipes/likes/' element={<Likes />} />
+          <Route path='/recipes/history/' element={<History />} />
         </Route>
         <Route path='*' element={<Error errorImage={ErrorImg} error={"NOT FOUND"} />} />
       </Routes>
