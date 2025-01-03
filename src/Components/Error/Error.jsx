@@ -16,7 +16,7 @@ function Error({error , errorImage}) {
         my={3}
         color='primary.main'
       >
-        {error}
+        {error.toUpperCase()}
       </Typography>
     </Stack>
   }/>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Stack , MenuCard} from '../index'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,6 +33,7 @@ function FoodList({food , styles}) {
         }
     }
 
+
     return (
         <Stack
             direction={'row'}
@@ -46,10 +47,10 @@ function FoodList({food , styles}) {
                 food.map((element, key) => {
                     return <MenuCard
                         key={key}
-                        id={element.meals[0].idMeal}
-                        name={element.meals[0].strCategory}
-                        content={element.meals[0].strInstructions}
-                        image={element.meals[0].strMealThumb}
+                        id={element.meals?.[0].idMeal}
+                        name={element.meals?.[0].strCategory}
+                        content={element.meals?.[0].strInstructions}
+                        image={element.meals?.[0].strMealThumb}
                         styles={{
                             my: 3,
                             mx: 4

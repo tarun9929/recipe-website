@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { Container, ColorPaletter, CircularProgress , FoodList} from '../index'
+import { Container, ColorPaletter, CircularProgress , FoodList, Error} from '../index'
 import meals from '../../MealApi/MealApi';
 import { useParams } from 'react-router-dom';
+import ErrorImg from '../../../images/Error.png'
 
 function SearchMyFood() {
     const [food, setFood] = React.useState([]);
@@ -12,8 +13,13 @@ function SearchMyFood() {
     useEffect(() => {
         meals.getMealByName(params)
             .then((data) => {
-                setFood([data]);
-                setLoading(false);
+                if(data.meals) {
+                    setFood([data]);
+                    setLoading(false);
+                } else {
+                    setFood([])
+                    setLoading(false);
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -35,13 +41,18 @@ function SearchMyFood() {
             </Container>
         )
     }
-    return (
-        <>
-            <FoodList
-                food={food}
-            />
-        </>
-    )
+
+    if(food.length != 0){
+        return (
+            <>
+                <FoodList
+                    food={food}
+                />
+            </>
+        )
+    } else {
+        return <Error errorImage={ErrorImg} error={'recipe not found'} />
+    }
 }
 
 export default SearchMyFood
