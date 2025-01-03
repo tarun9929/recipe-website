@@ -8,6 +8,7 @@ import Home from "./Home/Home";
 import About from "./About/About";
 import Recipes from "./Recipes/Recipes";
 import Introduction from "./LearnMore/Introduction";
+import Error from './Error/Error';
 
 import { Typography } from '@mui/material'
 import AppBar from '@mui/material/AppBar';
@@ -52,6 +53,7 @@ export {
     Learn,
     Content,
     Likes,
+    Error,
 
     // Mui Components
     Typography,

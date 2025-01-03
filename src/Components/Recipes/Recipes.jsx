@@ -30,13 +30,14 @@ function Recipes({ useHook, numberOfMeals }) {
                 }))
             })
             .catch((error) => {
-                console.log(error);
+                console.log("error");
                 dispatch(setData({
                     isLoading: false,
                     error
                 }))
             })
     }
+
 
     return (
         <>

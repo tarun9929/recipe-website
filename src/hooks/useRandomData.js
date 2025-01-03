@@ -19,7 +19,6 @@ function useRandomData(numberOfMeals) {
                 }));
               })
               .catch((error) => {
-                console.log(error);
                 dispatch(setData(
                   {
                     data: [],
