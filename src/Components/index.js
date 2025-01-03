@@ -15,6 +15,7 @@ import Content from "./RecipeContent/Content";
 import Likes from './Likes/Likes';
 import Error from './Error/Error';
 import History from './History/History';
+import EmptyPage from './Error/EmptyPage';
 
 import { Typography } from '@mui/material'
 import AppBar from '@mui/material/AppBar';
@@ -57,6 +58,7 @@ export {
     Likes,
     Error,
     History,
+    EmptyPage,
 
     // Mui Components
     Typography,

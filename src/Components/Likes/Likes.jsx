@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import meals from '../../MealApi/MealApi'
 import { useSelector } from 'react-redux'
-import { FoodList, Typography } from '../index';
+import { EmptyPage, FoodList, Typography } from '../index';
 
 function Likes() {
     const mealsData = useSelector((state) => state.api.likes);
@@ -23,7 +23,7 @@ function Likes() {
         return <Typography
             component={'h1'}
         >
-            NO LIKE YET
+            <EmptyPage />
 
         </Typography>
     }

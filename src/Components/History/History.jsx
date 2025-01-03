@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector } from "react-redux";
 import meals from '../../MealApi/MealApi';
-import { Typography } from '../index';
-import Empty from '../../../images/empty.png'
+import { Box, FoodList, Stack, Typography , EmptyPage } from '../index';
+
 
 function History() {
   const ids = useSelector((state) => state.api.history);
@@ -22,10 +22,10 @@ function History() {
   })
 
   if(!ids.length) {
-    return <>
-      <img src={Empty} style={{width: '100%' , height: '88vh'}} alt="" />
-    </>
-  } 
+    return <EmptyPage />
+  } else {
+    return <FoodList food={history} />
+  }
 }
 
 export default History
