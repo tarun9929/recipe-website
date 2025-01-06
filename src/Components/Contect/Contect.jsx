@@ -39,7 +39,6 @@ export default function Contect() {
             id="outlined-multiline-flexible"
             label="Discription"
             multiline
-            maxRows={10}
             rows={10}
           />
           <Button 
