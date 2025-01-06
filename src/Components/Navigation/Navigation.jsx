@@ -3,6 +3,7 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuIcon, Container
 import master from '../../../images/master.png'
 import { Link } from 'react-router-dom';
 import { v4 } from 'uuid';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const pages = [
   {
@@ -46,6 +47,7 @@ const settings = [
 ];
 
 function Navigation() {
+  const matches = useMediaQuery('(max-width:232px)');
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 

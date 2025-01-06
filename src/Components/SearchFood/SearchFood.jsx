@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { TextField, Stack, Title, Button, ColorPaletter } from '../index'
 import { Link } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function SearchFood() {
   const [search , setSearch] = React.useState('')
+  const matches = useMediaQuery('(max-width:232px)');
   return <ColorPaletter children={(
     <Stack 
       spacing={2}
@@ -15,9 +17,10 @@ export default function SearchFood() {
         alignItems: 'center'
       }}
     >
+      {/* <span>{`(min-width:600px) matches: ${matches}`}</span> */}
       <Title
         title={"Search Your Recipe"}
-        variant={'h2'}
+        variant={matches ? 'h5' : 'h2'}
         component={'h1'}
         styles={{
           color: 'primary.main'

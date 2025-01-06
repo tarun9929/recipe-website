@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Stack, IconButton } from '@mui/material';
-import {Grid} from '../index'
+import Grid from '@mui/material/Grid2';
 import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 import { ColorPaletter } from '../index';
 
@@ -9,7 +9,7 @@ function Footer() {
          <Box sx={{ backgroundColor: 'primary.main', color: 'white', py: 4 }}>
             <Grid container spacing={4} justifyContent="center">
                 {/* Column 1: About Us */}
-                <Grid item xs={12} md={3}>
+                <Grid xs={12} md={3}>
                     <Typography variant="h6" gutterBottom>
                         About Us
                     </Typography>
@@ -19,7 +19,7 @@ function Footer() {
                 </Grid>
 
                 {/* Column 2: Quick Links */}
-                <Grid item xs={12} md={3}>
+                <Grid xs={12} md={3}>
                     <Typography variant="h6" gutterBottom>
                         Quick Links
                     </Typography>
@@ -32,7 +32,7 @@ function Footer() {
                 </Grid>
 
                 {/* Column 3: Contact */}
-                <Grid item xs={12} md={3}>
+                <Grid xs={12} md={3}>
                     <Typography variant="h6" gutterBottom>
                         Contact Us
                     </Typography>
@@ -42,11 +42,11 @@ function Footer() {
                 </Grid>
 
                 {/* Column 4: Social Media */}
-                <Grid item xs={12} md={3}>
+                <Grid xs={12} md={3}>
                     <Typography variant="h6" gutterBottom>
                         Follow Us
                     </Typography>
-                    <Stack direction="row" spacing={2}>
+                    <Stack direction="row" spacing={2} flexWrap={'wrap'}>
                         <IconButton color="inherit" href="https://facebook.com" target="_blank">
                             <Facebook />
                         </IconButton>

@@ -16,6 +16,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { useSelector } from 'react-redux';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -44,6 +45,7 @@ const ExpandMore = styled((props) => {
 export default function MenuCard({id , name , content , image , styles , onClickHandlar , handleLikes}) {
   const [expanded, setExpanded] = React.useState(false);
   const [like , setLike] = React.useState(false);
+  const matches = useMediaQuery('(max-width:232px)');
 
   let isLiked = false
 

@@ -3,8 +3,10 @@ import { Container, Typography, Stack } from '@mui/material'
 import { Box } from '@mui/material'
 import master from '../../../images/master.png';
 import {ColorPaletter, Title} from '../index'
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function LandingPage() {
+    const matches = useMediaQuery('(max-width:232px)');
     return (
         <>
             <ColorPaletter children={
@@ -27,7 +29,7 @@ function LandingPage() {
                         <Box>
                             <Title 
                                 title="Are You Hungry" 
-                                variant={'h3'}
+                                variant={matches ? 'h5' : 'h3' }
                                 component={'h3'}
                                 styles={{
                                     textAlign: 'center', 
@@ -36,7 +38,7 @@ function LandingPage() {
                             />
                             < Title
                                 title={"Let's Make Somethin Special!"}
-                                variant='h4'
+                                variant={matches ? 'h6' : 'h4'}
                                 component={'h2'}
                                 styles={{
                                     my:2
