@@ -4,7 +4,20 @@ import master from '../../../images/master.png'
 import { Link } from 'react-router-dom';
 import { v4 } from 'uuid';
 
-const pages = ['Recipes', 'About', 'Contact'];
+const pages = [
+  {
+    title: 'Home',
+    address: '/'
+  }, 
+  {
+    title: 'Recipes',
+    address: 'recipes'
+  },
+  {
+    title:'Contact',
+    address: '/contact'
+  }
+];
 const settings = [
   {
     title: 'Likes',
@@ -112,10 +125,10 @@ function Navigation() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link to={`${page.toLowerCase()}`} style={{ textDecoration: 'none', color: 'black' }}>
+                <MenuItem key={v4()} onClick={handleCloseNavMenu}>
+                  <Link to={page.address} style={{ textDecoration: 'none', color: 'black' }}>
                     <Typography sx={{ textAlign: 'center' }}>
-                      {page}
+                      {page.title}
                     </Typography>
                   </Link>
                 </MenuItem>
@@ -151,8 +164,8 @@ function Navigation() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link
-                key={page}
-                to={`/${page.toLowerCase()}`}
+                key={v4()}
+                to={page.address}
                 style={{
                   textDecoration: 'none',
                   color: 'white'
@@ -163,7 +176,7 @@ function Navigation() {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
+                  {page.title}
                 </Button>
               </Link>
             ))}

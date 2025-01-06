@@ -6,19 +6,20 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
+import ColorPaletter from '../Palette/ColorPaletter';
 
 export default function Introduction({content}) {
-  return (
+  const {Image} = content;
+  return <ColorPaletter children={(
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={content.image}
-          alt="green iguana"
-        />
+        <Typography
+          textAlign={'center'}
+        >
+          <Image />
+        </Typography>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div" textAlign={'center'}>
+          <Typography gutterBottom variant="h5" component="div" textAlign={'center'} color='primary.main'>
             {content.title.toUpperCase()}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -29,9 +30,9 @@ export default function Introduction({content}) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          MORE
         </Button>
       </CardActions>
     </Card>
-  );
+  )} />;
 }

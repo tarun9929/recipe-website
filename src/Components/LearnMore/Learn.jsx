@@ -1,22 +1,31 @@
 import React from 'react'
 import { Introduction, Stack, Typography } from '../index'
-import aboutImage1 from '../../../images/aboutImage1.jpg'
-import aboutImage2 from '../../../images/aboutImage2.jpg'
-import aboutImage3 from '../../../images/aboutImage3.webp'
+import FlatwareIcon from '@mui/icons-material/Flatware';
+import SearchIcon from '@mui/icons-material/Search';
+import ShareIcon from '@mui/icons-material/Share';
 
 function Learn() {
     const content = [
         {
-            image: aboutImage1,
+            Image: () => <FlatwareIcon sx={{
+                fontSize: '5rem',
+                color: 'primary.main'
+            }}/>,
             title: "Cook Your Favorite Food"
         }, 
         {
-            image: aboutImage1,
+            Image: () => <SearchIcon sx={{
+                fontSize: '5rem',
+                color: 'primary.main'
+            }}/>,
             title: "Search Recipes"
         },
         {
-            image: aboutImage3,
-            title: "Help"
+            Image: () => <ShareIcon sx={{
+                fontSize: '5rem',
+                color: 'primary.main'
+            }}/>,
+            title: "Share with your Friends"
         }
     ]
     return (
@@ -26,12 +35,14 @@ function Learn() {
                 component={'h1'}
                 variant='h4'
                 my={4}
+                mb={10}
             >
-                Learn
+                LEARN
             </Typography>
             <Stack
                 direction={'row'}
                 justifyContent={'space-around'}
+                mb={15}
             >
                 {
                     content.map((element , index) => {
@@ -39,7 +50,6 @@ function Learn() {
                     })
                 }
             </Stack>
-            
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { LandingPage, SearchFood , Learn } from '../index'
+import { LandingPage, SearchFood , Learn , Footer} from '../index'
 
 function Home() {
   return (
@@ -7,6 +7,7 @@ function Home() {
       <LandingPage />
       <SearchFood />
       <Learn/>
+      <Footer/>
     </>
   )
 }
