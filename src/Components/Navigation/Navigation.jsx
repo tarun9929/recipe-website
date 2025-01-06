@@ -72,7 +72,7 @@ function Navigation() {
     }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <LocalDiningIcon sx={{ mx: 2 }} />
+          {matches ? null : <LocalDiningIcon sx={{ mx: 2 }} />}
           <Typography
             variant="h6"
             noWrap
