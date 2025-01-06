@@ -2,11 +2,35 @@ import * as React from 'react';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuIcon, Container, Avatar, Button, Tooltip, MenuItem, LocalDiningIcon } from '../index';
 import master from '../../../images/master.png'
 import { Link } from 'react-router-dom';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import HistoryIcon from '@mui/icons-material/History';
+import { v4 } from 'uuid';
 
 const pages = ['Recipes', 'About', 'Contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = [
+  {
+    title: 'Likes',
+    dest: '/recipes/likes'
+  }, 
+  {
+    title: 'History',
+    dest: '/recipes/history'
+  }, 
+  {
+    title: 'Profile',
+    dest: ''
+  }, 
+  {
+    title: 'Account',
+    dest: ''
+  }, 
+  {
+    title: 'Dashboard',
+    dest: ''
+  },
+  {
+    title: 'Logout',
+    dest: ''
+  }
+];
 
 function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -144,32 +168,6 @@ function Navigation() {
               </Link>
             ))}
           </Box>
-          <Box>
-            <Link to={'/recipes/likes'}>
-              <IconButton>
-                <FavoriteIcon 
-                  fontSize='30px'
-                  sx={{
-                  color: 'white'
-                }} />
-              </IconButton>
-            </Link>
-          </Box>
-          <Box 
-            mr={3}
-            ml={1}
-          >
-            <Link to={'/recipes/history'}>
-              <IconButton>
-                <HistoryIcon 
-                  fontSize='30px'
-                  sx={{
-                    color: 'white'
-                  }}
-                />
-              </IconButton>
-            </Link>
-          </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -193,8 +191,20 @@ function Navigation() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                <MenuItem 
+                  key={v4()} 
+                  onClick={handleCloseUserMenu}
+                >
+                  <Link 
+                    to={setting.dest} 
+                    style={
+                      {
+                        textDecoration: 'none', 
+                        color: 'black'
+                      }
+                    }>
+                    <Typography sx={{ textAlign: 'center' }}>{setting.title}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
