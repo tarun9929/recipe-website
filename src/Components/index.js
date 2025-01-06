@@ -37,6 +37,9 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import Contect from "./Contect/Contect";
 import CircularProgress from '@mui/material/CircularProgress';
+import Grid from '@mui/material/Grid2';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
 
 export {
@@ -80,5 +83,8 @@ export {
     TextField,
     Stack,
     Autocomplete,
-    CircularProgress
+    CircularProgress,
+    Grid,
+    styled,
+    Paper
 };

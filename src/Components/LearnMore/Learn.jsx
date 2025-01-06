@@ -42,6 +42,7 @@ function Learn() {
             <Stack
                 direction={'row'}
                 justifyContent={'space-around'}
+                flexWrap={'wrap'}
                 mb={15}
             >
                 {
